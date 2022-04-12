@@ -18,7 +18,7 @@ In this pattern, we show how to create endpoints to differenciate between Users 
 [Foodmarket app] https://documenter.getpostman.com/view/19468470/UVz1MBxQ
 
 ### Heroku Documentation
-https://fathomless-beyond-10355.herokuapp.com/
+https://dashboard.heroku.com/apps/vast-headland-56568
 
 #### Developer Documentation
 Twitter: https://www.twitter.com/makamakanaki

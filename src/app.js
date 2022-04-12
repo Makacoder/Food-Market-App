@@ -57,6 +57,12 @@ mysqldb;
 postgresdb;
 connectDB;
 
+app.get("/", (req, res) => {
+  res.send({
+    message: "Makanaki the Super Hacker",
+  });
+});
+
 app.use("/api/v1", userRoute);
 app.use("/api/v1", adminRoute);
 app.use("/api/v1", foodStuffRoute);
