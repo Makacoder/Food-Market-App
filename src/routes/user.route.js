@@ -1,15 +1,10 @@
 /** @format */
+const express = require("express");
+const { createUser, loginUser } = require("../controllers/user.controller");
 
-const { Router } = require("express");
+const router = express.Router();
 
-const router = Router();
-
-const userCtrl = require("../controllers/user.controller");
-
-// @params req
-// @params res
-// @params next
-
-router.post("/createUser", userCtrl.createUser); // create new user
+router.post("/createUser", createUser); // create new user
+router.post("/loginUser", loginUser); // create user login
 
 module.exports = router;
