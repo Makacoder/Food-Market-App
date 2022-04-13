@@ -22,13 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 // set view engine
 app.set("view engine", "ejs");
 
-// Custom Modules
-
-// Database connection
 
 // MAIN ENTRY POINT
 app.get("/", (req, res) => {
-  res.json({ message: "This is the main application entry point" });
+  res.send({
+    message: "Makanaki the Super Hacker",
+  });
 });
 
 // google home page
@@ -48,22 +47,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// set up routes
-// app.use('/api/v1/', userRoute)
-
+// Database referencing
 const { PORT } = process.env;
 const mysqldb = require("./database/mysqldb");
 const postgresdb = require("./database/postgresdb");
+
+//Database connections
 mysqldb;
 postgresdb;
 connectDB;
 
-app.get("/", (req, res) => {
-  res.send({
-    message: "Makanaki the Super Hacker",
-  });
-});
-
+//Setup Routes
 app.use("/api/v1", userRoute);
 app.use("/api/v1", adminRoute);
 app.use("/api/v1", foodStuffRoute);
