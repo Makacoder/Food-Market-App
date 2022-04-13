@@ -1,4 +1,4 @@
-//  Require dependencies
+//  Dependencies
 const Admin = require("../models/admin.model");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -14,8 +14,7 @@ const db = require("../database/mysqldb");
 const createAdmin = async (req, res, next) => {
   try {
     const { firstname, lastname, phonenumber, email, password } = req.body;
-    // validating reg.body with joi
-    //  await validiateUser.validateAsync(req.body);
+    
     // checking if an Admin already has an account
     const [admin] = await db.execute(
       "SELECT `email` FROM `users` WHERE `email` = ?",
@@ -27,7 +26,7 @@ const createAdmin = async (req, res, next) => {
         message: "the email already exist",
       });
     }
-    //  hashing password
+    //  password hash
     const hashPassword = await bcrypt.hash(password, 10);
 
     // creating a new user
@@ -83,7 +82,7 @@ const verifyEmail = async (req, res, next) => {
     }
 
     const verify = await db.execute(
-      "UPDATE admins SET isVerified = true WHERE isVerified = false"
+      "UPDATE admin SET isVerified = true WHERE isVerified = false"
     );
     return res.status(201).json({ message: "Admin verified successfully" });
   } catch (error) {

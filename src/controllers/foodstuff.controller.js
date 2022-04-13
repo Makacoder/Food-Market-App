@@ -1,6 +1,6 @@
 /** @format */
 
-// const validateEvent = require("../middleware/validate.middleware");
+
 const db = require("../database/postgresdb");
 const dotenv = require("dotenv");
 dotenv.config();

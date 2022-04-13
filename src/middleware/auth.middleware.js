@@ -1,4 +1,4 @@
-// require dependencies
+// dependencies
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 

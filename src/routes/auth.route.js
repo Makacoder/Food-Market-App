@@ -14,7 +14,7 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// auth with google+
+// auth with google
 router.get(
   '/google',
   passport.authenticate('google', {
@@ -22,7 +22,7 @@ router.get(
   })
 );
 
-// callback route for google to redirect to
+// callback route for google to redirect
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
   res.redirect('/profile');
 });

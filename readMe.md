@@ -6,13 +6,13 @@ Everyone is tired of going to the market, and a team of friends have decided to 
 
 ## Building and creating endpoints for foodmarket app
 
-1.Authenticate users with Oauth2 and social login (Facebook and Google)
+1.Authenticate users with Oauth2 and social login (Google)
 2.Create an endpoint to view all available foodstuffs fetching 10 events per time (Pagination).
 3.Create an endpoint to create a new foodstuff package but only for someone with role “ROLE_ADMIN”
 4. Create an endpoint to pay for foodstuffs. Use flutterwave to process the payment, ask for number of KG to calculate the final price to pay
 5. Create endpoint to add to cart before checkout
 
-In this pattern, we show how to create endpoints to differenciate between Users and Admin, and then profiling Admin rights for authentication and authorization using Oauth2 Authorization code grant types, MySQL to store users' data and PostgreSQL to store other data. I'm also Connecting to database through AWS database service. For Ouath2, middleware jasonwebtoken and joi validation was used intead of KeyCloak or Okta.
+In this pattern, we show how to create endpoints to differenciate between Users and Admin, and then profiling Admin rights for authentication and authorization using Oauth2 Authorization code grant types, MySQL to store users' data and PostgreSQL to store other data. I'm also Connecting to database through AWS database service. For Ouath2, middleware jasonwebtoken and joi validation was used instead of KeyCloak or Okta.
 
 ### Postman Documentation
 [Foodmarket app] https://documenter.getpostman.com/view/19468470/UVz1MBxQ
