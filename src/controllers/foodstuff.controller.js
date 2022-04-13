@@ -1,6 +1,6 @@
 /** @format */
 const foodstuff = require("../models/foodstuff.model");
-const cloudinaryUploadMethod = require("../utils/cloudinary.js");
+const cloudinaryUploadMethod = require("../utils/cloudinary");
 const path = require("path");
 const express = require("express");
 const router = express.Router();
@@ -22,11 +22,11 @@ exports.addFoodstuff = async (req, res, next) => {
     }
     images = urls.map((url) => url.res);
 
-    const { foodname, amount, images } = req.body;
+    const { foodname, amount } = req.body;
     // validating reg.body with joi
     // await validateEvents.validateAsync(req.body);
     const foodstuff = await db.query(
-      "INSERT INTO foodstuff (foodname, amount, images) VALUES ($1, $2, $3, $4) RETURNING *",
+      "INSERT INTO foodstuff (foodname, amount, images) VALUES ($1, $2, $3) RETURNING *",
       [foodname, amount, images]
     );
     return res.status(201).json({
@@ -46,7 +46,7 @@ exports.fetchAllFoodstuff = async (req, res, next) => {
     const { page } = req.query;
     // pagination
     const allFoodstuff = await db.query(
-      `SELECT * FROM foodstuff Order By id LIMIT 5 OFFSET ${(page - 1) * 5}`
+      `SELECT * FROM foodstuff Order By id LIMIT 10 OFFSET ${(page - 1) * 5}`
     );
     if (
       allFoodstuff.rows[0] == null ||
@@ -58,7 +58,7 @@ exports.fetchAllFoodstuff = async (req, res, next) => {
       });
     }
     const count = await db.query("SELECT COUNT(*)FROM foodstuff");
-    return successResMsg(res, 200, {
+    return res.status(200).json({
       message: "Foodstuff fetch successfully",
       count: count.rows[0],
       allFoodstuff: allFoodstuff.rows,
