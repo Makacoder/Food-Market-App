@@ -16,7 +16,7 @@ const pool = new Pool({
 
 pool.query("SELECT NOW()", (err, res) => {
   if (!err) {
-    console.log("Connected to PostgresDB");
+    console.log("Connected to Makanaki PostgreSQL Database");
   } else {
     console.log(err.message);
   }

@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 // set view engine
 app.set("view engine", "ejs");
 
-
 // MAIN ENTRY POINT
 app.get("/", (req, res) => {
   res.send({

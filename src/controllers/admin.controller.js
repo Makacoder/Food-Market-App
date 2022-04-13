@@ -17,7 +17,7 @@ const createAdmin = async (req, res, next) => {
     
     // checking if an Admin already has an account
     const [admin] = await db.execute(
-      "SELECT `email` FROM `users` WHERE `email` = ?",
+      "SELECT `email` FROM `admin` WHERE `email` = ?",
       [req.body.email]
     );
 
@@ -29,9 +29,9 @@ const createAdmin = async (req, res, next) => {
     //  password hash
     const hashPassword = await bcrypt.hash(password, 10);
 
-    // creating a new user
+    // creating a new admin user
     const [newAdmin] = await db.execute(
-      "INSERT INTO users (firstname, lastname, email, phonenumber, password) VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO admin (firstname, lastname, email, phonenumber, password) VALUES (?, ?, ?, ?, ?)",
       [firstname, lastname, email, phonenumber, hashPassword]
     );
     // creating a payload

@@ -3,8 +3,8 @@
 class foodstuff {
   constructor() {
     this.id = id;
-    this.name = name;
-    this.location = image;
+    this.name = foodname;
+    this.images = images;
     this.amount = amount;
   }
 }

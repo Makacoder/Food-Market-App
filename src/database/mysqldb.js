@@ -14,7 +14,7 @@ connection.connect(function (err) {
     return console.error("error: " + err.message);
   }
 
-  console.log("Connected to Makanaki MySQL server.");
+  console.log("Connected to Makanaki MySQL Database");
 });
 
 module.exports = connection.promise();
