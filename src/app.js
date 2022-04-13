@@ -12,6 +12,7 @@ const userRoute = require("./routes/user.route");
 const adminRoute = require("./routes/admin.route");
 const connectDB = require("./database/connectDB");
 const foodStuffRoute = require("./routes/foodstuff.route");
+const foodPackageRouter = require("./routes/foodpackage.route");
 
 dotenv.config();
 const app = express();
@@ -66,6 +67,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", userRoute);
 app.use("/api/v1", adminRoute);
 app.use("/api/v1", foodStuffRoute);
+app.use("/api/v1", foodPackageRouter);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", profileRoutes);
 

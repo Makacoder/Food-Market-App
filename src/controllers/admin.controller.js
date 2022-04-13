@@ -98,7 +98,7 @@ const loginAdmin = async (req, res, next) => {
     // await AdminLogin.validateAsync(req.body);
     //  checking email and password match
     if (email && password) {
-      const [admin] = await db.execute("SELECT * FROM admins WHERE email =?", [
+      const [admin] = await db.execute("SELECT * FROM admin WHERE email =?", [
         email,
       ]);
       if (admin.length === 0) {
